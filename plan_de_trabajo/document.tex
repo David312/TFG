@@ -3,18 +3,48 @@
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{subfigure}
+% ------------------ FROM TEMPLATE ----------------------%
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{mathpazo} % Palatino fon
+% -------------------------------------------------------%
 
-\title{Plan de Trabajo}
-\author{David Herrero Sánchez}
-\date{26 de Febrero de 2018}
+\def\titulo{Integración y validación del software del computador de a bordo
+  del UPMSat-2}
+\def\autor{David Herrero Sánchez}
+\def\supervisor{Juan Zamorano Flores}
+\def\fecha{26 de Febrero de 2018}
 
+\hypersetup{
+  linkcolor=black,
+  colorlinks=true,
+  urlcolor=blue
+}
+
+\def \toplen{0.98 in}
+\def \bottomlen{0.98 in}
+\def \leftlen{1.18 in}
+\def \rightlen{1.18 in}
+
+\geometry{
+	a4paper,
+	left=\leftlen,
+	right=\rightlen,
+	top=\toplen,
+	bottom=\bottomlen
+}
 \setlength{\parindent}{0pt}
+% \addtolength{\leftmargin}{-0.5cm}
+% \addtolength{\textwidth}{1cm}
+% \setlength{\parskip}{-0.1cm}
 
 \begin{document}
-\maketitle
+\include{tex/titlepage}
 \input{tex/descripcion_general}
 \input{tex/tareas}
 \input{tex/gantt}
-% \input{tex/copia_tutor}
+\include{tex/copia_tutor}
 
 \end{document}
