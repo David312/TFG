@@ -1,0 +1,38 @@
+\documentclass[a4paper, 12pt]{report} % La fuente debe ser de 12pt
+
+\usepackage{TFG}
+
+\Director{Juan Zamorano Flores}
+\Lugar{Madrid}
+\Trabajo{Trabajo Fin de Grado}
+\Grado{Graduado en Ingeniería Informática}
+
+\author{David Herrero Sánchez}
+\date{Abril de 2018}
+\title{Integración y validación del software del computador
+  de a bordo del UPMSat-2.}
+
+% Bibliografía
+\bibliography{bibliography}
+
+\begin{document}
+% Preámbulo
+\pagenumbering{roman} % La numeración debe ser romana hasta la primera sección
+
+\maketitle
+\tableofcontents
+\listoffigures
+\listoftables
+
+\include{tex/abstract}
+
+% Contenido
+\pagenumbering{arabic} % Iniciamos la numeración árabe en la primera sección
+
+%% Input de los distintos capítulos
+% \input{capitulos/introduccion}
+% \input{capitulos/estadodelarte}
+
+% Última sección, numerada, para la bibliografía
+\printbibliography[heading=bibnumbered] 
+\end{document}

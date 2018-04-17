@@ -5,3 +5,9 @@
 *.toc
 \#*
 *.out
+*.run*
+*.out
+*.lof
+*.lot
+*.bcf
+*.bbl
