@@ -14,7 +14,7 @@ Personalmente he metido todos los ```\usepackage``` en lo que estos repositorios
 anteriores llaman *portada.sty*, que en mi caso lo he renombrado como *TFG.sty*.
 De esta forma 
 solo es necesario poner ```\usepackage{TFG}``` tras el ```\documentclass``` 
-(gustos personales ¯\\_(ツ)_/¯).
+(gustos personales ¯\\\_(ツ)\_/¯).
 
 ## Requisitos para la compilación
 Para compilar es necesario haber instalado los paquetes *texlive-full* 
