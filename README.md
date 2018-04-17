@@ -11,11 +11,11 @@ repos que cumplen con la
 * [Fork con versión mejorada](https://github.com/vfrico/Portada-UPM-ETSIINF)
 
 Personalmente he metido todos los ```\usepackage``` en lo que estos repositorios
-anteriores llaman __portada.sty__, que en mi caso lo he renombrado a __TFG.sty__.
+anteriores llaman *portada.sty*, que en mi caso lo he renombrado a *TFG.sty*.
 De esta forma 
 solo es necesario poner ```\usepackage{TFG}``` tras el ```\documentclass``` 
 (gustos personales ¯\_(ツ)_/¯).
 
 ## Requisitos para la compilación
-Para compilar es necesario haber instalado los paquetes __texlive-full__ 
-y __biber__ de Ubuntu.
+Para compilar es necesario haber instalado los paquetes *texlive-full* 
+y *biber* de Ubuntu.
