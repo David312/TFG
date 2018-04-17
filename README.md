@@ -7,14 +7,14 @@ Ingeniería Informática de la ETSIINF-UPM (Universidad Politécnica de Madrid).
 Mi TFG está escrito en Latex usando como base los estilos de los siguientes 
 repos que cumplen con la 
 [normativa de la ETSIINF](https://www.fi.upm.es/?pagina=1475):
-* [Estilo base](https://github.com/skgsergio/Portada-UPM-ETSIINF)
-* [Fork con versión mejorada](https://github.com/vfrico/Portada-UPM-ETSIINF)
+* [Estilo base](https://github.com/skgsergio/Portada-UPM-ETSIINF) (skgsergio)
+* [Fork con versión mejorada](https://github.com/vfrico/Portada-UPM-ETSIINF) (vfrico)
 
 Personalmente he metido todos los ```\usepackage``` en lo que estos repositorios
-anteriores llaman *portada.sty*, que en mi caso lo he renombrado a *TFG.sty*.
+anteriores llaman *portada.sty*, que en mi caso lo he renombrado como *TFG.sty*.
 De esta forma 
 solo es necesario poner ```\usepackage{TFG}``` tras el ```\documentclass``` 
-(gustos personales ¯\_(ツ)_/¯).
+(gustos personales ¯\\_(ツ)_/¯).
 
 ## Requisitos para la compilación
 Para compilar es necesario haber instalado los paquetes *texlive-full* 
