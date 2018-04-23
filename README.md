@@ -18,4 +18,4 @@ solo es necesario poner ```\usepackage{TFG}``` tras el ```\documentclass```
 
 ## Requisitos para la compilación
 Para compilar es necesario haber instalado los paquetes *texlive-full* 
-y *biber* de Ubuntu.
+y *biber* versión 2016 de Ubuntu.
