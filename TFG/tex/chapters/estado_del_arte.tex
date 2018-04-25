@@ -2,9 +2,48 @@
 \chapter{Estado del Arte}
 \label{chap:estado_del_arte}
 
-jañsldfjaslñdfjasdflña
+El software del OBC del UPMSat-2 está desarrollado en el lenguaje Ada usando un
+compilador cruzado para procesadores LEON3.
 
-\section{sección}
-\label{sec:seccion}
+Los motivos para emplear este lenguaje de programación son bastantes, pero
+principalmente destaca por ser un lenguaje orientado al desarrollo de software
+para sistemas
+empotrados y de tiempo real como es el UPMSat-2, ya que incorpora de forma
+innata todos los mecanismos necesarios para el manejo y control de la
+concurrencia. Además cabe destacar que el lenguaje Ada es
+uno de los lenguajes oficiales de la Agencia Espacial Europea
+(ESA\cite{web-ESA}) para este tipo de sistemas.
 
-lkajdsfñlasdjf
+Puesto que cada uno de los subsistemas que componen el OBC tiene sus propias
+tareas o hilos de ejecución para llevar a cabo su funcionalidad, es necesario
+controlar de alguna manera sus prioridades y la compartición de recursos.
+Para ello, se emplea el perfil de Ravenscar\cite{perfil-ravenscar},
+que es un subconjunto de
+las características de Ada que restringe ciertos aspectos como los siguientes:
+
+\begin{itemize}
+\item Una tarea con prioridad $N$ no puede acceder a recursos compartidos
+  (conocidos como \textit{objetos protegidos o protected objects}) de prioridad
+  inferior.
+\item Si una tarea con prioridad $N$ accede a un objeto protegido
+  de prioridad $M$
+  con $M \geq N$, esta tarea adquiere la prioridad $M$ hasta que haya
+  terminado de usar dicho objeto.
+\item Una tarea no puede llamar a otra directamente.
+\item Un objeto protegido solo puede tener una \textit{entry}
+  \footnote{Procedimiento en el que una tarea va a quedarse esperando hasta que
+  se dé una condición establecida en el objeto protegido.}.
+\item Solo puede haber una tarea esperando en la \textit{entry} de un objeto
+  protegido.
+\item Todos los tiempos de espera (sentencias \textit{delay}) deben ser
+  relativos.
+\end{itemize}
+
+En el caso de que no se cumpla alguna de las normas anteriores se lanzará
+automáticamente la excepción PROGRAM\_ERROR finalizando la ejecución del
+software.
+
+Gracias al perfil de Ravenscar se consigue controlar de forma mucho más
+eficiente la concurrencia, evitando entre otras cosas
+la aparición de \textit{deadlocks}.
+
