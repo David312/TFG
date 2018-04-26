@@ -2,21 +2,45 @@
 \chapter{Estado del Arte}
 \label{chap:estado_del_arte}
 
-El software del OBC del UPMSat-2 está desarrollado en el lenguaje Ada usando un
-compilador cruzado para procesadores LEON3.
-
-Los motivos para emplear este lenguaje de programación son bastantes, pero
-principalmente destaca por ser un lenguaje orientado al desarrollo de software
-para sistemas
-empotrados y de tiempo real como es el UPMSat-2, ya que incorpora de forma
-innata todos los mecanismos necesarios para el manejo y control de la
-concurrencia. Además cabe destacar que el lenguaje Ada es
+El OBC del UPMSat-2 es un sistema empotrado (o embebido), ya que está
+diseñado para cumplir un conjunto de necesidades específicas, y 
+también un sistema de tiempo real por la necesidad de que responda a los
+estímulos del entorno físico dentro de un intervalo de tiempo determinado.
+Por ello, es necesario emplear herramientas que permitan cumplir con estas
+necesidades de la manera más simple posible.
+\nota{Es un sistema de alta integridad ya que no se puede reparar una vez en
+  vuelo,por lo que tiene que ser diseñado muy cuidadosamente.}
+Un lenguaje de programación que facilita esta tarea es Ada, ya que incorpora
+de forma innata todos los mecanismos necesarios para el control de tiempo y la
+interacción entre tareas o hilos de ejecución.
+Además cabe destacar que el lenguaje Ada es
 uno de los lenguajes oficiales de la Agencia Espacial Europea
 (ESA\cite{web-ESA}) para este tipo de sistemas.
 
-Puesto que cada uno de los subsistemas que componen el OBC tiene sus propias
-tareas o hilos de ejecución para llevar a cabo su funcionalidad, es necesario
-controlar de alguna manera sus prioridades y la compartición de recursos.
+El software del OBC del UPMSat-2 por tanto ha sido desarrollado en el lenguaje
+Ada usando un compilador cruzado\footnote{Compilador que genera un código
+  ejecutable para otra arquitectura distinta.}
+para procesadores de la arquitectura SPARC, en concreto el procesador LEON3.
+
+Como cada uno de los subsistemas que componen el OBC tiene sus propias
+tareas para llevar a cabo su funcionalidad, es necesario
+controlar de alguna manera sus prioridades y la compartición de recursos entre
+ellas.
+
+Un ejemplo de la importancia de ajustar correctamente las prioridades de las
+tareas es el siguiente:
+Tenemos dos tareas: una para el control de la actitud del satélite (tarea
+crítica) y otra para
+el control de un experimento (tarea prescindible). Si la tarea de control de
+actitud necesita
+comprobar el estado del satélite cada medio segundo y resulta que ambas tareas
+tienen la misma prioridad, puede ocurrir que la tarea del experimento esté
+ocupando la CPU e impida cumplir con los requerimientos temporales de la
+primera, dando posibilidad al descontrol del satélite y la pérdida de las
+comunicaciones.
+
+\nota{Hasta aquí las modificaciones.}\\
+
 Para ello, se emplea el perfil de Ravenscar\cite{perfil-ravenscar},
 que es un subconjunto de
 las características de Ada que restringe ciertos aspectos como los siguientes:
@@ -39,9 +63,8 @@ las características de Ada que restringe ciertos aspectos como los siguientes:
   relativos.
 \end{itemize}
 
-En el caso de que no se cumpla alguna de las normas anteriores se lanzará
-automáticamente la excepción PROGRAM\_ERROR finalizando la ejecución del
-software.
+En el caso de que no se cumpla alguna de las normas anteriores se producirá
+una excepción que provocará el fin de la ejecución del software.
 
 Gracias al perfil de Ravenscar se consigue controlar de forma mucho más
 eficiente la concurrencia, evitando entre otras cosas

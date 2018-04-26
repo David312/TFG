@@ -7,9 +7,8 @@ Institudo de Microgravedad Ignacio Da Rivas (IDR) junto con la Universidad
 Politécnica de Madrid (UPM).
 
 Como denota el nombre del satélite, este proyecto nace como sucesión al
-ya lanzado exitosamente UPM-SAT1, y está siendo desarrollado en colaboración
-con las distintas escuelas que componen la UPM, cada una aportando sus
-conocimientos de ingeniería en los que está especializada.
+ya lanzado exitosamente UPM-SAT1, y está siendo desarrollado por 
+\nota{Mencionar solo los grupos de aeronáuticos, el DIT, etc.}
 
 Como detalles técnicos del satélite cabe destacar la información proporcionada
 en la página web del proyecto\cite{web-upmsat2}:
@@ -23,12 +22,35 @@ en la página web del proyecto\cite{web-upmsat2}:
 \item Vida útil: 2 años.
 \end{itemize}
 
+\section{Equipamiento}
+\label{sec:equipamiento}
+Como equipamiento hardware el UPMSat-2 dispone de los siguientes componentes:
+\begin{itemize}
+\item Seis paneles solares (uno por cada eje X, Y, Z).
+\item Seis sensores de temperaturas.
+\item Una batería de \nota{averiguar capacidad}.
+\item Tres magnetómetros para medir el campo magnético de la Tierra.
+\item Tres magnetopares (uno por eje) para generar un campo magnético que permita
+  mantener la orientación (también llamada actitud) del satélite en la
+  posición adecuada.
+\item Una tarjeta de radio para las comunicaciones con la estación de Tierra.
+\item Un volante o rueda de inercia\footnote{Un volante de inercia se basa en el
+    principio de conservación del momento angular para controlar la actitud de
+    satélites. Su funcionamiento básico consiste en un motor que gira y genera
+    un momento angular que es transmitido al satélite en el eje correspondiente.
+    De esta forma pueden emplearse un conjunto de ruedas de inercia en lugar
+    de usar magnetopares.} para experimentación.
+\item Tres microswitches térmicos (microthermal switches) también para
+  experimentación.
+\item Un computador de a bordo (OBC\footnote{On Board Computer}) encargado de
+  controlar y coordinar el funcionamiento mediante software de todos los
+  dispositivos anteriores.
+\end{itemize}
 \section{Objetivos}
 \label{sec:objetivos}
 
 Este Trabajo de Fin de Grado (TFG) tiene como objetivo integrar el software (SW)
-de vuelo del computador de a bordo (OBC\footnote{On Board Computer}) del
-satélite.
+de vuelo del OBC.
 
 Los objetivos concretos son los siguientes:
 \begin{itemize}
@@ -40,8 +62,7 @@ Los objetivos concretos son los siguientes:
 \item Desarrollo de un programa que permita diseñar las baterías de pruebas de
   forma gráfica.
 \item Validación y verificación de los requisitos SW.
-\item Preparación de parches para arreglar los fallos detectados en la
-  validacion.
+\item Arreglar los fallos SW detectados en la validación.
 \end{itemize}
 
 
@@ -49,7 +70,7 @@ Los objetivos concretos son los siguientes:
 \label{sec:estructura doc}
 
 Este documento está estructurado de la siguiente forma: en el capítulo
-\ref{chap:estado del arte} se describe a grandes rasgos cuales son las
+\ref{chap:estado_del_arte} se describe a grandes rasgos cuales son las
 restricciones bajo las que se ha desarrollado el SW del OBC, sus necesidades
 y cómo son las herramientas de desarrollo de las que se dispone.
 
